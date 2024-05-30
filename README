@@ -1,0 +1,95 @@
+#Springer Robert-Stefan 311CA
+    Proiect PCLP3 - Partea I
+
+Cerinta 1: 
+    -Folosesc len(df.columns) si len(df) , care returnează numarul de coloane si de linii.
+    -Folosesc df.dtypes, care returneaza tipul de date al fiecarei coloane.
+    -FOLOSESC df.isnull().sum(), care returneaza numarul de valori lipsa.
+    -Verificarea existentei de linii duplicate se realizează prin df.duplicated().sum(), care returneaza numarul de linii duplicate.
+Raspuns cerinta:
+    Numarul de coloane: 11
+    Numarul de linii: 418
+    Tipurile datelor din fiecare coloana:
+    PassengerId      int64
+    Pclass           int64
+    Name            object
+    Sex             object
+    Age            float64
+    SibSp            int64
+    Parch            int64
+    Ticket          object
+    Fare           float64
+    Cabin           object
+    Embarked        object
+    Numarul de valori lipsa pentru fiecare coloana:
+    PassengerId      0
+    Pclass           0
+    Name             0
+    Sex              0
+    Age             86
+    SibSp            0
+    Parch            0
+    Ticket           0
+    Fare             1
+    Cabin          327
+    Embarked         0
+    Numarul de linii duplicate: 0
+
+Cerinta 2:
+    -Folosesc df['numele coloanei'].value_counts ca sa obtin procentajul de oameni pentru fiecare categorie.
+    -Creez 3 grafice folosind matplotlib.pyplot care sa reprezinte valorile calculate mai devreme.
+Raspuns cerinta:
+    ![alt text](grafic(task2).png)
+
+Cerinta 3:
+    -Folosesc df.select_dtypes(include = ['int64', 'float64']).columns pentru a selecta coloanele care contin numere.
+    -Folosesc plt.subplots pentru a arata 8 histograme intr-o imagine, le afisez si la final elimin histogramele nefolosite.
+Raspuns cerinta:
+    ![alt text](all_histograms.png)
+
+Cerinta 4:
+    -Folosesc df.columns[df.isnull().any()] pentru a gasi coloanele incomlete si pentru fiecare calculez numarul si procentajul.
+Raspuns cerinta:
+    Coloanele cu valori lipsa: Index(['Age', 'Cabin', 'Embarked'])
+    Numarul de valori lipsa pentru fiecare coloana:
+    Age         177
+    Cabin       687
+    Embarked      2
+    Procentul valorilor lipsa pentru fiecare coloana:
+    Age         19.865320
+    Cabin       77.104377
+    Embarked     0.224467
+
+Cerinta 5:
+    -Folosind pd.cut impart setul de date in 4 categorii dupa coloana "Age" si creez o noua coloana "Age category" conform enuntului.
+    -Creez un grafic folosind matplotlib.pyplot care sa reprezinte valorile calculate mai devreme.
+Raspuns cerinta:
+    ![alt text](grafic(task5).png)
+
+Cerinta 6:
+    -Calculez procentajul de supraviatuire pe varste folosind df.groupby si grupand dupa "Age category" si "Survived".
+    -Creez un grafic folosind matplotlib.pyplot care sa reprezinte valorile calculate mai devreme.
+Raspuns cerinta:
+    ![alt text](grafic(task6).png)
+
+Cerinta 7:
+    -Calculez procentul de copii la bord dupa categoria "Age" si apoi procentul de copii care au supraviatuit df.groupby si grupand dupa "Age" si "Survived".
+    -Creez un grafic folosind matplotlib.pyplot care sa reprezinte valorile calculate mai devreme.
+Raspuns cerinta:
+    ![alt text](grafic(task7).png)
+
+Cerinta 8:
+    -Completez valorile lipsa din categoria "Age" cu media varstei pasagerilor din aceeași clasa folosind df.groupby.
+    -Completez cele mai frecvente valori pentru coloanele categoriale.
+    -Creez fisierul modificat (titanic_modificat(task8).csv).
+
+Cerinta 9:
+    -Extrag din coloana "Name" titlurile cu df['Name'].str.extract si apoi le grupez dupa "Title" si "Sex".
+    -Creez un grafic folosind matplotlib.pyplot care sa reprezinte valorile calculate mai devreme.
+Raspuns cerinta:
+    ![alt text](grafic(task9).png)
+
+Cerinta 10:
+    -Folosesc utilitarul catlpot pentru a reprezenta grafic relatia intre tarif, clasa si supravietuire.
+Raspuns cerinta:
+    ![alt text](grafic(task10).png)
